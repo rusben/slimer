@@ -12,6 +12,28 @@ $app->get('/hello/{name}', function ($request, $response, $args) {
     ]);
 })->setName('profile');
 
+
+// Define named route
+$app->get('/home', function ($request, $response, $args) {
+    return $this->view->render($response, 'index.html', [
+        'name' => $args['name']
+    ]);
+})->setName('home');
+
+// Define named route
+$app->get('/cover', function ($request, $response, $args) {
+    return $this->view->render($response, 'cover.html', [
+        'name' => $args['name']
+    ]);
+})->setName('cover');
+
+// Define named route
+$app->get('/jumbotron', function ($request, $response, $args) {
+    return $this->view->render($response, 'jumbotron.html', [
+        'name' => $args['name']
+    ]);
+})->setName('jumbotron');
+
 // Render from string
 $app->get('/hi/{name}', function ($request, $response, $args) {
     $str = $this->view->fetchFromString('<p>Hi, my name is {{ name }}.</p>', [
