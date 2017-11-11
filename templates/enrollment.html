@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">Matrícula</div>
+    
+    <div class="card-body">
+      <form method="post" action="{{ path_for('enrollment') }}">
+
+       <div class="form-group">
+          <label class="col-form-label" for="dni_nie">DNI o NIE</label>
+          <input type="text" class="form-control" name="dni_nie" id="dni_nie" placeholder="DNI o NIE">
+        </div>
+       
+        <div class="form-group">
+          <label class="col-form-label" for="born">Data de naixement</label>
+          <input type="text" class="form-control" name="born" id="born" placeholder="Data de naixement">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="nim">NIM</label>
+          <input type="text" class="form-control" name="nim" id="nim" placeholder="Número d'Identificació de Matrícula">
+        </div>
+
+        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+</div> <!-- /container -->
+
+{% endblock %}

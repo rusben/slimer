@@ -2,9 +2,9 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use App\Service\PreStudentService;
 
 // Routes
-
 // Define named route
 $app->get('/hello/{name}', function ($request, $response, $args) {
     return $this->view->render($response, 'profile.html', [
@@ -12,13 +12,45 @@ $app->get('/hello/{name}', function ($request, $response, $args) {
     ]);
 })->setName('profile');
 
-
 // Define named route
 $app->get('/home', function ($request, $response, $args) {
-    return $this->view->render($response, 'index.html', [
+    return $this->view->render($response, 'home.html', [
         'name' => $args['name']
     ]);
 })->setName('home');
+
+// Define named route
+$app->get('/pre', function ($request, $response, $args) {
+    return $this->view->render($response, 'pre-enrollment.html', [
+        'name' => $args['name']
+    ]);
+})->setName('pre-enrollment');
+
+// Define named route
+$app->post('/pre', function ($request, $response, $args) {
+    $nim = $this->PreStudentService->createPreStudent($request->getParsedBody());
+
+    return $this->view->render($response, 'pre-enrollment-success.html', [
+        'nim' => $nim
+    ]);
+});
+
+// Define named route
+$app->get('/matricula', function ($request, $response, $args) {
+    return $this->view->render($response, 'enrollment.html', [
+        'name' => $args['name']
+    ]);
+})->setName('enrollment');
+
+// Define named route
+$app->post('/matricula', function ($request, $response, $args) {
+    $this->PreStudentService->getPreStudent($request->getParsedBody());
+
+    return $this->view->render($response, 'enrollment-success.html', [
+        'nim' => $args['nim']
+    ]);
+});
+
 
 // Define named route
 $app->get('/cover', function ($request, $response, $args) {

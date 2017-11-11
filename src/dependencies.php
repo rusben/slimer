@@ -21,7 +21,7 @@ $container['logger'] = function ($c) {
 // Register Twig View helper
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Twig('../templates', [
-        'cache' => '../cache'
+      //  'cache' => '../cache'
     ]);
     
     // Instantiate and add Slim specific extension
@@ -49,4 +49,9 @@ $container['db'] = function ($c) {
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
 
+};
+
+// Own injected classes
+$container['PreStudentService'] = function ($c) {
+    return new \App\Service\PreStudentService($c['db']);
 };

@@ -56,9 +56,9 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Hello, world!</h1>
-          <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+          <h1 class="display-3">Hello, Puig!</h1>
+          <p>Aquest és el programa d'automatrícula del Puig. Si teniu dubtes sobre la seva utilització consulteu la secció ajuda.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Ajuda &raquo;</a></p>
         </div>
       </div>
 
@@ -66,19 +66,19 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Pre-matrícula</h2>
+            <p>Omple el formulari amb les teves dades i obtindràs un resguard de pagament. Quan facis efectiu el pagament podràs passar al següent pas, formalitzar la matricula amb l'entrega de la documentació. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">Pre-matrícula &raquo;</a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Matrícula</h2>
+            <p>Omple el formulari amb la documentació necessària per a formalitzar la matrícula. La documentació i el pagament seran validats per l'equip de secretaria i un cop tot estigui en ordre la teva matricula estarà completada. </p>
+            <p><a class="btn btn-secondary" href="#" role="button">Matrícula &raquo;</a></p>
           </div>
           <div class="col-md-4">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Estat de la matricula</h2>
+            <p>Consulta l'estat de la teva matrícula.</p>
+            <p><a class="btn btn-secondary" href="#" role="button">Estat de la meva matrícula &raquo;</a></p>
           </div>
         </div>
 
@@ -88,8 +88,24 @@
 
     </main>
 
+
+  
+  
+    {% block content %}
+        
+    {% endblock %}
+
+
+    {% extends "layout.html" %}
+
+    {% block content %}
+      Content of the page...
+    {% endblock %}
+
+
+
     <footer class="container">
-      <p>&copy; Company 2017</p>
+      <p>&copy; Institut Puig Castellar 2017</p>
     </footer>
 
     <!-- Bootstrap core JavaScript
