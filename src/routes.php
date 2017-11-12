@@ -13,11 +13,18 @@ $app->get('/hello/{name}', function ($request, $response, $args) {
 })->setName('profile');
 
 // Define named route
-$app->get('/home', function ($request, $response, $args) {
+$app->get('/', function ($request, $response, $args) {
     return $this->view->render($response, 'home.html', [
         'name' => $args['name']
     ]);
 })->setName('home');
+
+// Define named route
+$app->get('/ajuda', function ($request, $response, $args) {
+    return $this->view->render($response, 'help.html', [
+        'name' => $args['name']
+    ]);
+})->setName('help');
 
 // Define named route
 $app->get('/pre', function ($request, $response, $args) {
@@ -50,7 +57,6 @@ $app->post('/matricula', function ($request, $response, $args) {
         'nim' => $args['nim']
     ]);
 });
-
 
 // Define named route
 $app->get('/cover', function ($request, $response, $args) {
@@ -95,10 +101,11 @@ $app->get('/examples', function ($request, $response, $args) {
 
 });
 
+/*
 $app->get('/[{name}]', function (Request $request, Response $response, array $args) {
     // Sample log message
     $this->logger->info("Slim-Skeleton '/' route");
 
     // Render index view
     return $this->renderer->render($response, 'index.phtml', $args);
-});
+}); */
