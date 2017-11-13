@@ -26,6 +26,29 @@ $app->get('/ajuda', function ($request, $response, $args) {
     ]);
 })->setName('help');
 
+
+
+// Define named route
+$app->get('/fp', function ($request, $response, $args) {
+
+$courses = [["id" => 1, "name" => "Muntatge i manteniment d’equips"], 
+            ["id" => 2, "name" => "Sistemes operatius monolloc"], 
+            ["id" => 3, "name" => "Aplicacions ofimàtiques"],
+            ["id" => 4, "name" => "Sistemes operatius en xarxa"],
+            ["id" => 5, "name" => "Xarxes locals"],
+            ["id" => 6, "name" => "Seguretat informàtica"],
+            ["id" => 7, "name" => "Serveis de xarxa"],
+            ["id" => 8, "name" => "Aplicacions web"],
+            ["id" => 9, "name" => "FOL"],
+            ["id" => 10, "name" => "Empresa i iniciativa emprenedora"],
+            ["id" => 11, "name" => "Anglès tècnic"]];
+
+    return $this->view->render($response, 'fp-course-uf-selection-form.html', [
+        'name' => $args['name'],
+        'courses' => $courses
+    ]);
+})->setName('fp');
+
 // Define named route
 $app->get('/pre', function ($request, $response, $args) {
     return $this->view->render($response, 'pre-enrollment.html', [
