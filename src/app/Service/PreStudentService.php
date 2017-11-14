@@ -13,9 +13,10 @@ class PreStudentService
 
 	function createPreStudent($params) {
 
-		$sql = "INSERT INTO prestudent (dni_nie, name, surnames, address, studies, born, nim) VALUES (:dni_nie, :name, :surnames, :address, :studies, :born, :nim)";
+	    $sql = "INSERT INTO prestudent (dni_nie, email,  name, surnames, address, studies, born, nim) VALUES (:dni_nie, :email, :name, :surnames, :address, :studies, :born, :nim)";
 
-		$dni_nie = $params['dni_nie'];
+	    $dni_nie = $params['dni_nie'];
+	    $email = $params['email'];
 	    $name = $params['name'];
 	    $surnames = $params['surnames'];
 	    $address = $params['address'];
@@ -25,6 +26,7 @@ class PreStudentService
 	    try {
 	        $stmt =  $this->db->prepare($sql);  
 	        $stmt->bindParam("dni_nie", $dni_nie);
+	        $stmt->bindParam("email", $email);
 	        $stmt->bindParam("name", $name);
 	        $stmt->bindParam("surnames", $surnames);
 	        $stmt->bindParam("address", $address);
@@ -64,4 +66,29 @@ class PreStudentService
 	        return $error;
 	    }
 	}
+
+
+	function getOldStudent($params) {
+
+	    $sql = "SELECT * FROM prestudent WHERE email = :email LIMIT 1";
+	 
+		$email = $params['email'];
+
+	    try {
+	 	$stmt = $this->db->prepare($sql);  
+		$stmt->bindParam("email", $email);
+	        $stmt->execute();
+	        $prestudent = $stmt->fetchObject();
+	        
+	        return $prestudent;
+	    } catch(PDOException $e) {
+	        $error = array("error"=> array("text"=>$e->getMessage()));
+	        return $error;
+	    }
+	}
+
+	function sendEmailActivation() {
+		print_r("TODO: Configure PHPMailer.");
+	}
+
 }

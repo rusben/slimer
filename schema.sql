@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2017 at 12:43 AM
+-- Generation Time: Nov 14, 2017 at 11:50 PM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.25-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -47,25 +47,22 @@ INSERT INTO `example` (`id`, `name`) VALUES
 
 CREATE TABLE `prestudent` (
   `id` int(11) NOT NULL,
-  `dni_nie` text COLLATE utf32_unicode_ci NOT NULL,
-  `name` text COLLATE utf32_unicode_ci NOT NULL,
-  `surnames` text COLLATE utf32_unicode_ci NOT NULL,
-  `address` text COLLATE utf32_unicode_ci NOT NULL,
-  `studies` text COLLATE utf32_unicode_ci NOT NULL,
+  `dni_nie` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255)  COLLATE utf8_unicode_ci NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `surnames` text COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `studies` text COLLATE utf8_unicode_ci NOT NULL,
   `born` date NOT NULL,
-  `nim` text COLLATE utf32_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+  `nim` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `prestudent`
 --
 
-INSERT INTO `prestudent` (`id`, `dni_nie`, `name`, `surnames`, `address`, `studies`, `born`, `nim`) VALUES
-(1, '14413444', 'adsfasdf', 'asdfasdf', 'adsfadsf', 'adfadsf', '2017-11-01', ''),
-(2, '252355', 'xdfssdfg', 'sdfgsdfg', 'sdfgsdfgfsdgsdfg', 'sdfgsdfg', '2017-11-01', ''),
-(3, '0123456789F', 'John', 'Doe', 'Mountain View 17', 'ESO', '1999-11-01', '0123456789F20171112001145'),
-(4, '0123456789F', 'John', 'Doe', 'Mountain View 17', 'ESO', '2017-11-01', '0123456789F20171112001109'),
-(5, '0123456789F', 'John', 'Doe', 'Mountain View 17', 'ESO', '2017-11-01', '0123456789F20171112001107');
+INSERT INTO `prestudent` (`id`, `dni_nie`, `email`, `name`, `surnames`, `address`, `studies`, `born`, `nim`) VALUES
+(7, '145151234', 'email@example.com', 'John', 'Doe', 'Mountain View 17', 'ESO', '1999-11-01', '14515123420171114231124');
 
 -- --------------------------------------------------------
 
@@ -76,12 +73,12 @@ INSERT INTO `prestudent` (`id`, `dni_nie`, `name`, `surnames`, `address`, `studi
 CREATE TABLE `todos` (
   `id` int(10) UNSIGNED NOT NULL,
   `order` int(10) UNSIGNED DEFAULT NULL,
-  `uid` varchar(16) COLLATE utf32_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf32_unicode_ci DEFAULT NULL,
+  `uid` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `completed` tinyint(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -97,8 +94,8 @@ ALTER TABLE `example`
 -- Indexes for table `prestudent`
 --
 ALTER TABLE `prestudent`
-  ADD PRIMARY KEY (`id`);
-
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `prestudent_email` (`email`);
 --
 -- Indexes for table `todos`
 --
@@ -119,7 +116,7 @@ ALTER TABLE `example`
 -- AUTO_INCREMENT for table `prestudent`
 --
 ALTER TABLE `prestudent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `todos`
 --

@@ -77,11 +77,16 @@ $app->post('/pre-old', function ($request, $response, $args) {
 
     if ($oldStudent) { // Success - Generate random access
         $this->PreStudentService->sendEmailActivation($oldStudent);
+        return $this->view->render($response, 'pre-enrollment-old-student-success.html', [
+            'name' => $args['name'],
+            'info' => "Informació recuperada, si trobes alguna errada en les teves dades acadèmiques consulta al personal de secretaria abans de continuar."
+        ]);
+
         return;
     } else { // No student found
         return $this->view->render($response, 'pre-enrollment-old-student-failed.html', [
             'name' => $args['name'],
-            'info' => "No s'ha trobat cap usuari amb aquest correu."
+            'error' => "No s'ha trobat cap usuari amb aquest correu."
         ]);
     }
 
