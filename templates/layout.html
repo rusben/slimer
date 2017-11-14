@@ -21,11 +21,15 @@
     {% include "navbar.html" %} 
     
     <main role="main">
+
+    {% if info %}
+      <div class="alert alert-danger" role="alert"> {{ info }} </div>
+    {% endif %}
+    
     {% block content %}
         
     {% endblock %}
     </main>
-   
 
     <footer class="container">
       <p>&copy; Institut Puig Castellar 2017</p>

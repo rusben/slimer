@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+<h1>Pre-matrícula</h1>
+
+  <div class="card">
+    <div class="card-header">Pre-matrícula</div>
+
+    <div class="card-body">
+      <form method="post" action=" {{ path_for('pre-enrollment-old-student') }}">
+
+        <div class="form-group">
+          <label for="email">Correu del centre</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+        </div>
+
+        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+</div> <!-- /container -->
+
+{% endblock %}

@@ -57,6 +57,39 @@ $app->get('/pre', function ($request, $response, $args) {
 })->setName('pre-enrollment');
 
 // Define named route
+$app->get('/pre-new', function ($request, $response, $args) {
+    return $this->view->render($response, 'pre-enrollment-new-student.html', [
+        'name' => $args['name']
+    ]);
+})->setName('pre-enrollment-new-student');
+
+// Define named route
+$app->get('/pre-old', function ($request, $response, $args) {
+    return $this->view->render($response, 'pre-enrollment-old-student.html', [
+        'name' => $args['name']
+    ]);
+})->setName('pre-enrollment-old-student');
+
+// Define named route
+$app->post('/pre-old', function ($request, $response, $args) {
+
+    $oldStudent = $this->PreStudentService->getOldStudent($request->getParsedBody());
+
+    if ($oldStudent) { // Success - Generate random access
+        $this->PreStudentService->sendEmailActivation($oldStudent);
+        return;
+    } else { // No student found
+        return $this->view->render($response, 'pre-enrollment-old-student-failed.html', [
+            'name' => $args['name'],
+            'info' => "No s'ha trobat cap usuari amb aquest correu."
+        ]);
+    }
+
+});
+
+
+
+// Define named route
 $app->post('/pre', function ($request, $response, $args) {
     $nim = $this->PreStudentService->createPreStudent($request->getParsedBody());
 
@@ -80,7 +113,6 @@ $app->post('/matricula', function ($request, $response, $args) {
         'nim' => $args['nim']
     ]);
 });
-
 // Define named route
 $app->get('/cover', function ($request, $response, $args) {
     return $this->view->render($response, 'cover.html', [

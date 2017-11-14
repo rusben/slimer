@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+
+<h1>Pre-matrícula</h1>
+
+  <div class="card">
+    <div class="card-header">Pre-matrícula</div>
+
+    <div class="card-body">
+      <form method="post" action="/pre">
+
+       <div class="form-group">
+          <label class="col-form-label" for="dni_nie">DNI o NIE</label>
+          <input type="text" class="form-control" name="dni_nie" id="dni_nie" placeholder="DNI o NIE">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label" for="name">Nom</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Nom">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="surnames">Cognoms</label>
+          <input type="text" class="form-control" name="surnames" id="surnames" placeholder="Cognoms">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="address">Adreça</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="Adreça">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="studies">Estudis</label>
+          <input type="text" class="form-control" name="studies" id="studies" placeholder="Estudis">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="born">Data de naixement</label>
+          <input type="text" class="form-control" name="born" id="born" placeholder="Data de naixement">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+        </div>
+
+        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+</div> <!-- /container -->
+
+{% endblock %}
