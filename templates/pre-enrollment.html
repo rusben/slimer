@@ -3,18 +3,98 @@
 
 <div class="container">
 
+<form method="post" action="/pre">
+
 <h1>Pre-matrícula</h1>
+ <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">En quins estudis et matricules?</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Selecciona el curs en el que et vols matricular.</h6>
+      
+	    <div class="form-group">
+	      <select multiple size="17" class="form-control" name="studies" id="studies">
+			<optgroup label="ESO">
+	        	<option>1er ESO</option>
+	        	<option>2on ESO</option>
+	        	<option>3er ESO</option>
+	        	<option>4rt ESO</option>
+	        </optgroup>
+			<optgroup label="Batxillerat">
+	        	<option>1er Batxillerat</option>
+	        	<option>2on Batxillerat</option>
+	        </optgroup>
+	        <optgroup label="CFGM (Cicles Formatius de Grau Mitjà)">
+	        	<option>GA (Gestió Administrativa)</option>
+	        	<option>SMX (Sistemes Microinformàtics i Xarxes)</option>
+	        </optgroup>
+	        <optgroup label="CFGS (Cicles Formatius de Grau Superior)">
+		        <option>AF (Administració i Finances)</option>
+		        <option>ASIX (Administració de Sistemes Informàtics en Xarxa)</option>
+		        <option>DAM (Desenvolupament d'Aplicacions Multiplataforma)</option>
+	        </optgroup>
+	        <optgroup label="Altres">
+		        <option>CAS (Curs d'Accés a Grau Superior)</option>       
+	        </optgroup>         
+	      </select>
+	    </div>
+      
+    </div>
+  </div>
+
+   <div class="card">
+    <div class="card-body">
+		<h4 class="card-title">Dades personals</h4>
+      	<h6 class="card-subtitle mb-2 text-muted">Completa el formulari amb les teves dades.</h6>
+
+      
+
+       <div class="form-group">
+          <label class="col-form-label" for="dni_nie">DNI o NIE</label>
+          <input type="text" class="form-control" name="dni_nie" id="dni_nie" placeholder="DNI o NIE">
+        </div>
+        <div class="form-group">
+          <label class="col-form-label" for="name">Nom</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Nom">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="surnames">Cognoms</label>
+          <input type="text" class="form-control" name="surnames" id="surnames" placeholder="Cognoms">
+        </div>
+
+        <div class="form-group">
+          <label class="col-form-label" for="address">Adreça</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="Adreça">
+        </div>
+
+ 
+
+        <div class="form-group">
+          <label class="col-form-label" for="born">Data de naixement</label>
+          <input type="text" class="form-control" name="born" id="born" placeholder="Data de naixement">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+        </div>
+
+        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+
+    </div>
+  </div>
 
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Tens correu del centre?</h4>
-      <h6 class="card-subtitle mb-2 text-muted">Recuperació de les teves dades.</h6>
-      
-      <a href="{{ path_for('pre-enrollment-old-student') }}" class="card-link">Tinc correu del centre</a>
-      <a href="{{ path_for('pre-enrollment-new-student') }}" class="card-link">No tinc correu del centre</a>
+      <h6 class="card-subtitle mb-2 text-muted">Enviament de correu de verificació.</h6>
+      <p><a href="{{ path_for('pre-enrollment-new-student') }}" class="card-link">No tinc correu del centre.</a></p>
+      <p><a href="{{ path_for('pre-enrollment-old-student') }}" class="card-link">Tinc correu del centre.</a></p>
+      <p><a href="{{ path_for('pre-enrollment-new-student') }}" class="card-link">Tinc correu del centre, però no recordo la contrassenya.</a></p>
     </div>
   </div>
 
+	</form>
 </div> <!-- /container -->
 
 {% endblock %}
